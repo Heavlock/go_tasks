@@ -46,28 +46,41 @@ func (err MyErr2) Error() string {
 	return "my err"
 }
 func main() {
-	err1 := MyErr{er: "ss"}
-	err2 := MyErr{er: "ss"}
-	fmt.Println(err2 == err1)
-	fmt.Println(errors.Is(err1, err2))
-	arr := make([]int, 10)
-	arr[1] = 5
-	fmt.Println("cap", cap(arr))
-	fmt.Println("len", len(arr))
-	fmt.Println("arr", arr)
+	arrRange()
+
+	//err1 := MyErr{er: "ss"}
+	//err2 := MyErr{er: "ss"}
+	//fmt.Println(err2 == err1)
+	//fmt.Println(errors.Is(err1, err2))
+	//arr := make([]int, 10)
+	//arr[1] = 5
+	//fmt.Println("cap", cap(arr))
+	//fmt.Println("len", len(arr))
+	//fmt.Println("arr", arr)
 	//check(NewStore())
 	//changeString()
 	//getSlices2()
 	//focusWithCap()
 	//getSlices1()
-	changeSliceCap()
-	rangeStr()
+	//changeSliceCap()
+	//rangeStr()
 
 	//mp := make(map[string]string)
 	//editMap(mp)//map всегда передается по ссылке
 	//fmt.Println("map")
 	//fmt.Println(mp)
 	//fmt.Println(3 << 4) //3*(2**4)
+}
+
+func arrRange() {
+	var numbers []*int
+	for _, value := range []int{1, 2, 3, 4, 5} {
+		numbers = append(numbers, &value)
+	}
+
+	for _, number := range numbers {
+		fmt.Printf("%d ", *number)
+	}
 }
 
 func check(s Store) {
